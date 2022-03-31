@@ -1,0 +1,153 @@
+:root {
+  /* access variables with "var(--primary-color)" */
+  --primary-color: #004aad;
+  --secondary-color: #ffde59;
+  --default-font-size: 18px;
+  --small-font-size: 12px;
+  --big-font-size: 36px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: "Arimo", sans-serif;
+  font-size: var(--default-font-size);
+  background-color: rgba(255, 222, 89, 0.8);
+  color: black;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+header {
+  width: 100%;
+  background-color: var(--blue-2);
+  max-height: 25%;
+  padding: 24px;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header-branding {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo {
+  width: var(--size-fluid-7);
+  border-radius: var(--radius-blob-4);
+  cursor: pointer;
+}
+
+.header-slogan {
+  text-align: center;
+  font-size: var(--font-size-fluid-0);
+  font-weight: 900;
+  margin: 12px;
+  color: var(--primary-color);
+}
+
+.header-card {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  width: var(--size-fluid-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: var(--radius-2);
+}
+
+.header-card:nth-child(2) {
+  background-color: var(--pink-2);
+}
+
+.header-card:nth-child(3) {
+  background-color: var(--orange-3);
+}
+
+.header-card > h3 {
+  font-size: var(--font-size-fluid-1);
+  font-weight: 800;
+  margin-block: 12px;
+}
+
+.header-card > button {
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
+  width: var(--size-fluid-6);
+  padding: 4px;
+  margin-block: 14px;
+  border-radius: var(--radius-2);
+  transition: var(--ease-squish-2) 0.3s;
+}
+
+.header-card > button:hover {
+  transform: scale(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
