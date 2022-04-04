@@ -18,7 +18,7 @@
 html {
   font-family: "Arimo", sans-serif;
   font-size: var(--default-font-size);
-  background-color: rgba(255, 222, 89, 0.8);
+  background-color: var(--gray-2);
   color: black;
 }
 
@@ -66,11 +66,20 @@ h6 {
 #__next {
   isolation: isolate;
 }
+button {
+  background-color: white;
+  transition: var(--ease-squish-2) 0.3s;
+}
+
+button:hover {
+  background-color: var(--blue-2);
+  transform: scale(1.1);
+}
 
 header {
   width: 100%;
   background-color: var(--blue-2);
-  max-height: 25%;
+  max-height: 30vh;
   padding: 24px;
 }
 
@@ -105,6 +114,7 @@ nav {
 .header-card {
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
   width: var(--size-fluid-8);
+  margin: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,20 +132,85 @@ nav {
 .header-card > h3 {
   font-size: var(--font-size-fluid-1);
   font-weight: 800;
+  color: black;
   margin-block: 12px;
 }
 
 .header-card > button {
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
   width: var(--size-fluid-6);
-  padding: 4px;
-  margin-block: 14px;
+  padding: 2%;
+  margin-block: 1.5vh;
   border-radius: var(--radius-2);
-  transition: var(--ease-squish-2) 0.3s;
+  font-size: var(--font-size-fluid-0);
 }
 
-.header-card > button:hover {
-  transform: scale(1.1);
+.section-description {
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+.description-heading {
+  background-image: url("./images/hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  border-radius: var(--radius-2);
+  width: 70vw;
+  max-width: 700px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  margin: 8px;
+}
+
+.description-heading > h1 {
+  font-size: var(--font-size-fluid-3);
+}
+
+.description-heading > button {
+  width: 50%;
+  padding: 1.5%;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-2);
+  margin-block: 7%;
+  font-size: var(--font-size-fluid-1);
+}
+
+.description-content {
+  background-color: var(--gray-1);
+  border-radius: var(--radius-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 24px;
+  margin: 8px;
+  width: var(--size-content-3);
+}
+
+.description-content > p {
+  width: 100%;
+  padding: 10px;
+  font-size: var(--font-size-fluid-0);
+}
+
+/* NON-DESKTOP */
+@media (max-width: 768px) {
+  .section-description {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-description > * {
+    width: 90vw;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
