@@ -1,5 +1,3 @@
-import star from "../images/star.png";
-
 export default function Business(props) {
   return (
     <div className="business">
@@ -12,10 +10,6 @@ export default function Business(props) {
       </div>
       <div className="business-info">
         <span>{props.name}</span>
-        <div>
-          <img className="star" src={star} alt="star" />
-          <span>{props.stars}</span>
-        </div>
       </div>
     </div>
   );

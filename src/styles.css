@@ -213,7 +213,8 @@ nav {
   margin: 2vw;
 }
 
-.category-heading, .business-heading {
+.category-heading,
+.business-heading {
   color: white;
 }
 
@@ -286,25 +287,10 @@ nav {
   display: flex;
   justify-content: center;
   border-radius: 0 0 var(--radius-2) var(--radius-2);
-  margin-top: 4%;
+  margin: 5% 2% 0 2%;
   font-size: var(--font-size-fluid-0);
   font-weight: 600;
-}
-
-.business-info > span {
-  margin-right: 4%;
-}
-
-.business-info > div {
-  margin-left: 4%;
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.star {
-  width: 0.8rem;
-  aspect-ratio: 1/1;
-  margin: 2px;
+  text-align: center;
 }
 
 /* NON-DESKTOP */
