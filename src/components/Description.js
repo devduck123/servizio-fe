@@ -1,4 +1,8 @@
 export default function Description() {
+  function scrollToCategories() {
+    document.querySelector(".category-heading").scrollIntoView();
+  }
+
   return (
     <section className="section-description">
       <div className="description-heading">
@@ -7,7 +11,9 @@ export default function Description() {
           <br />
           servizio
         </h1>
-        <button type="button">View Services</button>
+        <button type="button" onClick={scrollToCategories}>
+          View Services
+        </button>
       </div>
       <div className="description-content">
         <p>
