@@ -2,32 +2,32 @@
 export default [
   {
     id: 1,
-    name: "Beauty",
+    name: "beauty",
     image: "",
   },
   {
     id: 2,
-    name: "Auto",
+    name: "auto",
     image: "",
   },
   {
     id: 3,
-    name: "Pets",
+    name: "pets",
     image: "",
   },
   {
     id: 4,
-    name: "Events",
+    name: "events",
     image: "",
   },
   {
     id: 5,
-    name: "Home",
+    name: "home",
     image: "",
   },
   {
     id: 6,
-    name: "Health",
+    name: "health",
     image: "",
   },
 ];
