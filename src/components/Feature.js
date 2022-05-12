@@ -21,7 +21,7 @@ export default function Feature() {
       </Link>
     );
   });
-  const businesses = businessData.map((data) => (
+  const featuredBusinesses = businessData.map((data) => (
     <Business id={data.id} name={data.name} key={data.id} image={data.image} />
   ));
 
@@ -33,7 +33,7 @@ export default function Feature() {
       </section>
       <section>
         <h2 className="featured-business-heading">Featured Businesses</h2>
-        <div className="featured-business-wrapper">{businesses}</div>
+        <div className="featured-business-wrapper">{featuredBusinesses}</div>
       </section>
       <Outlet />
     </section>

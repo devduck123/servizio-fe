@@ -1,16 +1,10 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
+import Business from "./Business";
 
 export default function BusinessesByCategory() {
   let [searchParams, setSearchParams] = useSearchParams();
   let category = searchParams.get("category");
-
-  // when searchParams changes ([searchParams]
-  // in React.useEffect()), we have to
-  // fetch /businesses?category={category} ???
-  //
-  // or does this component re-render every single time
-  // and therefore will call useEffect each time ???
 
   const [error, setError] = React.useState(null);
   const [isLoaded, setIsLoaded] = React.useState(false);
@@ -39,13 +33,19 @@ export default function BusinessesByCategory() {
     return <div>Loading...</div>;
   }
 
-  console.log(businessesByCategory);
-  
-  // TODO: write Business component (BusinessProfile Page)
+  const businesses =
+    businessesByCategory.length > 0 ? (
+      businessesByCategory.map((business) => (
+        <Business key={business.id} name={business.name} images={business.images}/>
+      ))
+    ) : (
+      <h2 style={{ color: "white" }}>no businesses here</h2>
+    );
 
   return (
     <section className="section-businesses">
       <h2 className="business-heading">All Businesses ({category})</h2>
+      {businesses}
     </section>
   );
 }

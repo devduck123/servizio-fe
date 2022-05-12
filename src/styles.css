@@ -241,7 +241,9 @@ nav {
   font-size: var(--font-size-fluid-1);
 }
 
-.category:hover {
+.category:hover,
+.featured-business:hover,
+.business:hover {
   background-color: var(--blue-2);
 }
 
@@ -265,10 +267,6 @@ nav {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-}
-
-.featured-business:hover {
-  background-color: var(--blue-2);
 }
 
 .featured-business-image-wrapper {
@@ -295,8 +293,26 @@ nav {
   text-align: center;
 }
 
-.section-businesses {
-  /* background-color: red; */
+/* .section-businesses {} */
+
+.business {
+  background-color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-block: 2rem;
+  padding: 1rem;
+  border-radius: var(--radius-2);
+  cursor: pointer;
+}
+
+.business-image-wrapper {
+  width: var(--size-content-1);
+  box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.4);
+}
+
+.business-description {
+  width: 70%;
+  margin-left: 6%;
 }
 
 /* NON-DESKTOP */
