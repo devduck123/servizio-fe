@@ -36,11 +36,18 @@ export default function BusinessesByCategory() {
   const businesses =
     businessesByCategory.length > 0 ? (
       businessesByCategory.map((business) => (
-        <Business key={business.id} name={business.name} images={business.images}/>
+        <Business
+          key={business.id}
+          name={business.name}
+          images={business.images}
+        />
       ))
     ) : (
-      <h2 style={{ color: "white" }}>no businesses here</h2>
+      <h2 style={{ color: "grey", margin: "1rem" }}>no businesses here</h2>
     );
+  
+  // TODO: wire up and write the logic for toggling business profile page
+  // to display
 
   return (
     <section className="section-businesses">

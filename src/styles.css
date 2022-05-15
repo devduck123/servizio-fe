@@ -299,7 +299,7 @@ nav {
   background-color: white;
   display: flex;
   flex-wrap: nowrap;
-  margin-block: 2rem;
+  margin-top: 2rem;
   padding: 1rem;
   border-radius: var(--radius-2);
   cursor: pointer;
@@ -314,6 +314,58 @@ nav {
   width: 70%;
   margin-left: 6%;
 }
+
+.business-profile {
+  background: red;
+  width: 100%;
+  border-radius: var(--radius-2);
+  padding: 1.6%;
+}
+
+fieldset {
+  margin: 1.2%;
+  /* border: none; */
+}
+
+input {
+  cursor: default;
+  outline: thin;
+  margin: 8px;
+  padding: 2px;
+  text-align: center;
+}
+
+textarea {
+  cursor: default;
+  outline: thin;
+  resize: vertical;
+  min-height: 100px;
+  max-height: 220px;
+  line-height: var(--font-lineheight-3);
+  margin: 8px;
+  padding: 12px;
+  font-size: var(--font-size-fluid-0);
+}
+
+.appointment-heading {
+  margin: 8px;
+}
+
+.input-date-wrapper, .input-notes-wrapper {
+  padding: 12px;
+  max-width: 80%;
+  cursor: default;
+}
+
+.input-date-wrapper > div {
+  margin: 6px;
+}
+
+.input-notes-wrapper > div {
+  display: flex;
+  flex-direction: column;
+}
+
 
 /* NON-DESKTOP */
 @media (max-width: 768px) {

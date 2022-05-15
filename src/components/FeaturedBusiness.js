@@ -1,4 +1,6 @@
-export default function Business(props) {
+import React from "react";
+
+export default function FeaturedBusiness(props) {
   return (
     <div className="featured-business">
       <div className="featured-business-image-wrapper">
