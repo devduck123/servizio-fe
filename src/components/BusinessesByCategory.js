@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import Business from "./Business";
 
 export default function BusinessesByCategory() {
+  // eslint-disable-next-line no-unused-vars
   let [searchParams, setSearchParams] = useSearchParams();
   let category = searchParams.get("category");
 
