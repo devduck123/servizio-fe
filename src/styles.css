@@ -323,7 +323,7 @@ nav {
 }
 
 fieldset {
-  margin: 1.2%;
+  margin: 2%;
   /* border: none; */
 }
 
@@ -366,6 +366,15 @@ textarea {
   flex-direction: column;
 }
 
+.btn-create-appointment {
+  margin-left: 2.4%;
+  width: 60%;
+  transition: default;
+}
+
+.btn-create-appointment:hover {
+  transform: none;
+}
 
 /* NON-DESKTOP */
 @media (max-width: 768px) {

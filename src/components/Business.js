@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Business(props) {
   /**
    *
@@ -27,10 +29,38 @@ export default function Business(props) {
   let profileURL = props.images
     ? `http://localhost:9199/${props.images[0]}`
     : "https://via.placeholder.com/300";
-  console.log(profileURL);
+
+  const [formData, setFormData] = React.useState({
+    date: "",
+    time: "",
+    comments: "",
+  });
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [name]: value,
+      };
+    });
+  }
 
   // TODO: when this business component is clicked, display the
   // business profile UI (for now, just make it a form component)
+  function createAppointment(event) {
+    // TODO: POST /appointments and clear the form
+    event.preventDefault();
+
+    console.log(formData.comments);
+    console.log(formData.date);
+    console.log(formData.time);
+
+    let rawDate = `${formData.date}T${formData.time}:00`
+    let dateObj = new Date(Date.parse(rawDate))
+    let formattedDate = dateObj.toISOString()
+    console.log(formattedDate);
+  }
 
   return (
     <div>
@@ -49,24 +79,46 @@ export default function Business(props) {
           <fieldset className="input-date-wrapper">
             <div>
               <label htmlFor="date">Preferred Date:</label>
-              <input id="date" type="date" />
+              <input
+                id="date"
+                type="date"
+                name="date"
+                onChange={handleChange}
+                value={formData.date}
+              />
             </div>
             <div>
               <label htmlFor="time">Preferred Time:</label>
-              <input id="time" type="time" />
+              <input
+                id="time"
+                type="time"
+                name="time"
+                onChange={handleChange}
+                value={formData.time}
+              />
             </div>
           </fieldset>
           <fieldset className="input-notes-wrapper">
             <div>
-              <label htmlFor="notes">Notes & Comments:</label>
+              <label htmlFor="comments">Notes & Comments:</label>
               <textarea
-                id="notes"
+                id="comments"
+                name="comments"
                 rows="4"
                 maxLength="360"
                 placeholder="My dog is a very hyperactive German Shepherd that requires extreme patience..."
+                onChange={handleChange}
+                value={formData.comments}
               />
             </div>
           </fieldset>
+          <button
+            className="btn-create-appointment"
+            onClick={createAppointment}
+            type="button"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>

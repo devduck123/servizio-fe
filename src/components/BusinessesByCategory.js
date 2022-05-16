@@ -11,7 +11,8 @@ export default function BusinessesByCategory() {
   const [businessesByCategory, setBusinessesByCategory] = React.useState([]);
 
   React.useEffect(() => {
-    let URL = `http://localhost:3000/businesses?category=${category}`;
+    let URL = `${process.env.REACT_APP_API_URL}businesses?category=${category}`;
+    console.log(URL);
     fetch(URL)
       .then((res) => res.json())
       .then(
@@ -38,6 +39,7 @@ export default function BusinessesByCategory() {
       businessesByCategory.map((business) => (
         <Business
           key={business.id}
+          businessId={business.id}
           name={business.name}
           images={business.images}
         />
