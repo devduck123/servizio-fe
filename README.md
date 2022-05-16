@@ -73,3 +73,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 - Open Props: https://open-props.style/
 - Google Fonts: Arimo
+
+### To Run in Production
+
+- npm run start-prod
+
+### To Run Locally
+
+- npm start
+

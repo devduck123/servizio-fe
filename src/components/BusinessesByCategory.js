@@ -12,7 +12,6 @@ export default function BusinessesByCategory() {
 
   React.useEffect(() => {
     let URL = `${process.env.REACT_APP_API_URL}businesses?category=${category}`;
-    console.log(URL);
     fetch(URL)
       .then((res) => res.json())
       .then(
@@ -47,7 +46,7 @@ export default function BusinessesByCategory() {
     ) : (
       <h2 style={{ color: "grey", margin: "1rem" }}>no businesses here</h2>
     );
-  
+
   // TODO: wire up and write the logic for toggling business profile page
   // to display
 

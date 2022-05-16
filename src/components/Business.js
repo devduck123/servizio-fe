@@ -25,6 +25,8 @@ export default function Business(props) {
    * since it was to be used to build a business profile page
    */
 
+  // TODO: use redux state to get jwt to fetch api
+
   // TODO: ensure that images[0] is the profile picture
   let profileURL = props.images
     ? `http://localhost:9199/${props.images[0]}`
@@ -48,6 +50,7 @@ export default function Business(props) {
 
   // TODO: when this business component is clicked, display the
   // business profile UI (for now, just make it a form component)
+
   function createAppointment(event) {
     // TODO: POST /appointments and clear the form
     event.preventDefault();
@@ -56,9 +59,9 @@ export default function Business(props) {
     console.log(formData.date);
     console.log(formData.time);
 
-    let rawDate = `${formData.date}T${formData.time}:00`
-    let dateObj = new Date(Date.parse(rawDate))
-    let formattedDate = dateObj.toISOString()
+    let rawDate = `${formData.date}T${formData.time}:00`;
+    let dateObj = new Date(Date.parse(rawDate));
+    let formattedDate = dateObj.toISOString();
     console.log(formattedDate);
   }
 

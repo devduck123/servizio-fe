@@ -1,7 +1,3 @@
 export default function Category(props) {
-    return (
-        <div className="category">
-            {props.name}
-        </div>
-    )
+  return <div className="category">{props.name}</div>;
 }

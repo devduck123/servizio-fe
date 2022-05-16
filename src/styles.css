@@ -351,7 +351,8 @@ textarea {
   margin: 8px;
 }
 
-.input-date-wrapper, .input-notes-wrapper {
+.input-date-wrapper,
+.input-notes-wrapper {
   padding: 12px;
   max-width: 80%;
   cursor: default;
