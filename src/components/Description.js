@@ -11,7 +11,7 @@ export default function Description() {
           <br />
           servizio
         </h1>
-        <button type="button" onClick={scrollToCategories}>
+        <button className="btn-discover" type="button" onClick={scrollToCategories}>
           View Services
         </button>
       </div>

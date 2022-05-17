@@ -5,6 +5,7 @@ import "firebaseui/dist/firebaseui.css";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Auth from "./components/Auth";
 import BusinessesByCategory from "./components/BusinessesByCategory";
 import "./styles.css";
 import App from "./App";
@@ -26,26 +27,29 @@ window.ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Provider store={store}>
-            <App />
-          </Provider>
-        }
-      >
-        <Route path="businesses" element={<BusinessesByCategory />} />
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
         <Route
-          path="*"
+          path="/"
           element={
-            <main>
-              <h1>nothing here</h1>
-            </main>
+            // <Provider store={store}>
+              <App />
+            // </Provider>
           }
-        />
-      </Route>
-    </Routes>
-  </BrowserRouter>
+        >
+          <Route path="businesses" element={<BusinessesByCategory />} />
+          <Route
+            path="*"
+            element={
+              <main>
+                <h1>nothing here</h1>
+              </main>
+            }
+          />
+        </Route>
+        <Route path="auth" element={<Auth />} />
+      </Routes>
+    </BrowserRouter>
+  </Provider>
 );

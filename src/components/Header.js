@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 
 export default function Header() {
@@ -12,13 +13,21 @@ export default function Header() {
         </div>
         <div className="header-card">
           <h3>Client</h3>
-          <button type="button">Sign up</button>
-          <button type="button">Login</button>
+          <Link to="/auth" className="btn-auth">
+            Sign up
+          </Link>
+          <Link to="/auth" className="btn-auth">
+            Login
+          </Link>
         </div>
         <div className="header-card">
           <h3>Business</h3>
-          <button type="button">Sign up</button>
-          <button type="button">Login</button>
+          <Link to="/auth" className="btn-auth">
+            Sign up
+          </Link>
+          <Link to="/auth" className="btn-auth">
+            Login
+          </Link>
         </div>
       </nav>
     </header>

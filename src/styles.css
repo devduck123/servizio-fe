@@ -48,7 +48,8 @@ svg {
 input,
 button,
 textarea,
-select {
+select,
+.btn-auth {
   font-family: inherit;
 }
 
@@ -67,13 +68,26 @@ h6 {
 #__next {
   isolation: isolate;
 }
-button {
+.btn-auth {
+  font-size: var(--font-size-fluid-0);
   background-color: white;
+  color: black;
   transition: var(--ease-squish-2) 0.3s;
+  border-radius: var(--radius-2);
+  padding: 1.4%;
+  margin-block: 4%;
+  width: 64%;
+  text-align: center;
+  box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.4);
 }
 
-button:hover {
+.btn-auth, .btn-discover {
+  transition: var(--ease-in-out-2) 0.2s;
+}
+
+.btn-auth:hover, .btn-discover:hover {
   background-color: var(--blue-2);
+  font-weight: 600;
   transform: scale(1.1);
 }
 
