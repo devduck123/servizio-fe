@@ -53,6 +53,7 @@ export default function Business(props) {
 
   function createAppointment(event) {
     // TODO: POST /appointments and clear the form
+    // TODO: validate required inputs
     event.preventDefault();
 
     console.log(formData.comments);

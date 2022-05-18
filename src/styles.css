@@ -75,17 +75,19 @@ h6 {
   transition: var(--ease-squish-2) 0.3s;
   border-radius: var(--radius-2);
   padding: 1.4%;
-  margin-block: 4%;
+  margin-block: 5%;
   width: 64%;
   text-align: center;
   box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.4);
 }
 
-.btn-auth, .btn-discover {
+.btn-auth,
+.btn-discover {
   transition: var(--ease-in-out-2) 0.2s;
 }
 
-.btn-auth:hover, .btn-discover:hover {
+.btn-auth:hover,
+.btn-discover:hover {
   background-color: var(--blue-2);
   font-weight: 600;
   transform: scale(1.1);
@@ -102,6 +104,12 @@ nav {
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+
+.nav-auth {
+  display: flex;
+  justify-content: space-around;
+  width: 50vw;
 }
 
 .header-branding {
@@ -136,11 +144,11 @@ nav {
   border-radius: var(--radius-2);
 }
 
-.header-card:nth-child(2) {
+.header-card:nth-child(1) {
   background-color: var(--pink-2);
 }
 
-.header-card:nth-child(3) {
+.header-card:nth-child(2) {
   background-color: var(--orange-3);
 }
 
@@ -391,8 +399,16 @@ textarea {
   transform: none;
 }
 
+.auth-wrapper {
+  transform: translateY(10vh);
+}
+
 /* NON-DESKTOP */
 @media (max-width: 768px) {
+  .btn-auth {
+    margin-block: 16px;
+  }
+
   .section-description {
     flex-direction: column;
     align-items: center;

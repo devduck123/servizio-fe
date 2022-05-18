@@ -3,7 +3,7 @@ import { createSlice, configureStore } from "@reduxjs/toolkit";
 export const jwtSlice = createSlice({
   name: "jwt",
   initialState: {
-    value: "foo",
+    value: "",
   },
   reducers: {
     setJWT: (state, action) => {
@@ -13,8 +13,6 @@ export const jwtSlice = createSlice({
 });
 
 export const { setJWT } = jwtSlice.actions;
-
-// export default jwtSlice.reducer
 
 export default configureStore({
   reducer: {

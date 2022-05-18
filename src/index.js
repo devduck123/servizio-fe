@@ -24,20 +24,15 @@ firebase.initializeApp(firebaseConfig);
 
 // Initialize the FirebaseUI Widget using Firebase.
 window.ui = new firebaseui.auth.AuthUI(firebase.auth());
+// FIXME: remove this in production
+window.ui.disableAutoSignIn();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            // <Provider store={store}>
-              <App />
-            // </Provider>
-          }
-        >
+        <Route path="/" element={<App />}>
           <Route path="businesses" element={<BusinessesByCategory />} />
           <Route
             path="*"

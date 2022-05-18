@@ -14,6 +14,13 @@ export default function Auth() {
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
+          
+          // FIXME: email not sending...
+          if (authResult.additionalUserInfo.isNewUser) {
+            var user = authResult.user;
+            user.sendEmailVerification();
+            alert(`Verification email sent to ${window.email}`)
+          }
           firebase
             .auth()
             .currentUser.getIdToken()
@@ -21,6 +28,7 @@ export default function Auth() {
               // console.log(token);
               dispatch(setJWT(token));
             });
+
           return true;
         },
         uiShown: function () {
@@ -36,13 +44,14 @@ export default function Auth() {
     });
   }, [dispatch]);
 
+  // FIXME: redux store works at this level, but not others
   const jwt = useSelector((state) => {
     return state.jwt;
   });
   console.log("jwt from redux: " + jwt.value);
 
   return (
-    <section>
+    <section className="auth-wrapper">
       <div id="firebaseui-auth-container"></div>
       <div id="loader">Loading...</div>
     </section>
