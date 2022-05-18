@@ -63,13 +63,14 @@ export default function Business(props) {
     };
     let fdJSON = JSON.stringify(fd);
 
-    let URL = `${process.env.REACT_APP_API_URL}appointments`;
+    let URL = `${process.env.REACT_APP_API_URL}appointments/`;
     // console.log(URL);
-
+    console.log(window.jwt);
     fetch(URL, {
       method: "post",
       body: fdJSON,
       headers: {
+        "Authorization": `${window.jwt}`,
         "Content-Type": "application/json",
       },
       // FIXME: REMOVE BELOW IN PRODUCTION

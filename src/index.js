@@ -22,6 +22,12 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+// TODO: consider separate environment variable
+// to have control over local v. production
+if (process.env.NODE_ENV !== "production") {
+  firebase.auth().useEmulator("http://localhost:9099")
+}
+
 // Initialize the FirebaseUI Widget using Firebase.
 window.ui = new firebaseui.auth.AuthUI(firebase.auth());
 // FIXME: remove this in production
