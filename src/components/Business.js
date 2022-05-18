@@ -26,10 +26,14 @@ export default function Business(props) {
    */
 
   // TODO: use redux state to get jwt to fetch api
+  let jwt = window.jwt;
 
   // TODO: ensure that images[0] is the profile picture
+  // let profileURL = props.images
+  //   ? `http://localhost:9199/${props.images[0]}`
+  //   : "https://via.placeholder.com/300";
   let profileURL = props.images
-    ? `http://localhost:9199/${props.images[0]}`
+    ? `https://storage.googleapis.com/${props.images[0]}`
     : "https://via.placeholder.com/300";
 
   const [formData, setFormData] = React.useState({
@@ -68,7 +72,10 @@ export default function Business(props) {
 
   return (
     <div>
-      <div className="business">
+      <div
+        onClick={() => props.handleToggle(props.businessId)}
+        className="business"
+      >
         <div className="business-image-wrapper">
           <img src={profileURL} alt="business profile" />
         </div>
@@ -77,54 +84,56 @@ export default function Business(props) {
           <p>some short description ...</p>
         </div>
       </div>
-      <div className="business-profile">
-        <form>
-          <h4 className="appointment-heading">Schedule an Appointment</h4>
-          <fieldset className="input-date-wrapper">
-            <div>
-              <label htmlFor="date">Preferred Date:</label>
-              <input
-                id="date"
-                type="date"
-                name="date"
-                onChange={handleChange}
-                value={formData.date}
-              />
-            </div>
-            <div>
-              <label htmlFor="time">Preferred Time:</label>
-              <input
-                id="time"
-                type="time"
-                name="time"
-                onChange={handleChange}
-                value={formData.time}
-              />
-            </div>
-          </fieldset>
-          <fieldset className="input-notes-wrapper">
-            <div>
-              <label htmlFor="comments">Notes & Comments:</label>
-              <textarea
-                id="comments"
-                name="comments"
-                rows="4"
-                maxLength="360"
-                placeholder="My dog is a very hyperactive German Shepherd that requires extreme patience..."
-                onChange={handleChange}
-                value={formData.comments}
-              />
-            </div>
-          </fieldset>
-          <button
-            className="btn-create-appointment"
-            onClick={createAppointment}
-            type="button"
-          >
-            Submit
-          </button>
-        </form>
-      </div>
+      {props.toggled && (
+        <div className="business-profile">
+          <form>
+            <h4 className="appointment-heading">Schedule an Appointment</h4>
+            <fieldset className="input-date-wrapper">
+              <div>
+                <label htmlFor="date">Preferred Date:</label>
+                <input
+                  id="date"
+                  type="date"
+                  name="date"
+                  onChange={handleChange}
+                  value={formData.date}
+                />
+              </div>
+              <div>
+                <label htmlFor="time">Preferred Time:</label>
+                <input
+                  id="time"
+                  type="time"
+                  name="time"
+                  onChange={handleChange}
+                  value={formData.time}
+                />
+              </div>
+            </fieldset>
+            <fieldset className="input-notes-wrapper">
+              <div>
+                <label htmlFor="comments">Notes & Comments:</label>
+                <textarea
+                  id="comments"
+                  name="comments"
+                  rows="4"
+                  maxLength="360"
+                  placeholder="My dog is a very hyperactive German Shepherd that requires extreme patience..."
+                  onChange={handleChange}
+                  value={formData.comments}
+                />
+              </div>
+            </fieldset>
+            <button
+              className="btn-create-appointment"
+              onClick={createAppointment}
+              type="button"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }

@@ -18,7 +18,16 @@ export default function BusinessesByCategory() {
       .then(
         (data) => {
           setIsLoaded(true);
-          setBusinessesByCategory(data);
+          setBusinessesByCategory(() =>
+            typeof data == Object
+              ? data.map((d) => {
+                  return {
+                    ...d,
+                    toggled: false,
+                  };
+                })
+              : data
+          );
         },
         (err) => {
           setIsLoaded(true);
@@ -42,14 +51,24 @@ export default function BusinessesByCategory() {
           businessId={business.id}
           name={business.name}
           images={business.images}
+          toggled={business.toggled}
+          handleToggle={toggle}
         />
       ))
     ) : (
       <h2 style={{ color: "grey", margin: "1rem" }}>no businesses here</h2>
     );
 
-  // TODO: wire up and write the logic for toggling business profile page
-  // to display
+  function toggle(businessId) {
+    setBusinessesByCategory((prevBusinesses) => {
+      return prevBusinesses.map((business) => {
+        if (business.id === businessId) {
+          return { ...business, toggled: !business.toggled };
+        }
+        return business;
+      });
+    });
+  }
 
   return (
     <section className="section-businesses">

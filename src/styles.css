@@ -45,12 +45,11 @@ svg {
   max-width: 100%;
 }
 
-input,
 button,
 textarea,
-select,
-.btn-auth {
+select {
   font-family: inherit;
+  background-color: white;
 }
 
 p,
@@ -75,19 +74,21 @@ h6 {
   transition: var(--ease-squish-2) 0.3s;
   border-radius: var(--radius-2);
   padding: 1.4%;
-  margin-block: 5%;
+  margin-block: 5.5%;
   width: 64%;
   text-align: center;
   box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.4);
 }
 
 .btn-auth,
-.btn-discover {
+.btn-discover,
+.nav-auth > button {
   transition: var(--ease-in-out-2) 0.2s;
 }
 
 .btn-auth:hover,
-.btn-discover:hover {
+.btn-discover:hover,
+.nav-auth > button:hover {
   background-color: var(--blue-2);
   font-weight: 600;
   transform: scale(1.1);
@@ -108,8 +109,22 @@ nav {
 
 .nav-auth {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   width: 50vw;
+  max-width: 500px;
+  text-align: center;
+}
+
+.nav-auth > h4 {
+  font-size: var(--font-size-fluid-1);
+}
+
+.nav-auth > button {
+  padding: 1.6%;
+  margin: var(--size-fluid-1);
+  font-size: var(--font-size-fluid-0);
 }
 
 .header-branding {
@@ -338,7 +353,8 @@ nav {
 }
 
 .business-profile {
-  background: red;
+  background-color: var(--orange-4);
+  color: black;
   width: 100%;
   border-radius: var(--radius-2);
   padding: 1.6%;
@@ -346,7 +362,7 @@ nav {
 
 fieldset {
   margin: 2%;
-  /* border: none; */
+  border: none;
 }
 
 input {
@@ -355,6 +371,8 @@ input {
   margin: 8px;
   padding: 2px;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: black;
 }
 
 textarea {
@@ -367,10 +385,15 @@ textarea {
   margin: 8px;
   padding: 12px;
   font-size: var(--font-size-fluid-0);
+  color: black;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .appointment-heading {
   margin: 8px;
+  padding: 8px;
+  font-size: var(--font-size-fluid-1);
+  font-weight: 800;
 }
 
 .input-date-wrapper,
@@ -392,11 +415,11 @@ textarea {
 .btn-create-appointment {
   margin-left: 2.4%;
   width: 60%;
-  transition: default;
+  transition: var(--ease-squish-2) 0.2s;
 }
 
 .btn-create-appointment:hover {
-  transform: none;
+  background-color: var(--blue-2);
 }
 
 .auth-wrapper {

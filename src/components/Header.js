@@ -9,7 +9,14 @@ export default function Header(props) {
   React.useEffect(() => {
     setNavToRender(() => {
       return !props.signedIn ? (
-        <section className="nav-auth">
+        <section
+          className="nav-auth"
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-around",
+            alignItems: "center",
+          }}
+        >
           <div className="header-card">
             <h3>Client</h3>
             <Link to="/auth" className="btn-auth">
@@ -30,12 +37,16 @@ export default function Header(props) {
           </div>
         </section>
       ) : (
-        <section className="nav-auth">
-          <h4 style={{ color: "white", marginTop: "6vh" }}>
+        <section
+          className="nav-auth"
+          style={{ flexDirection: "column", alignItems: "stretch" }}
+        >
+          <h4 style={{ color: "white", marginTop: "3vh" }}>
             Signed in @ {window.displayName}
           </h4>
+          <button type="button">View Appointments</button>
           <button type="button" onClick={props.signOut}>
-            <small>Sign out</small>
+            Sign out
           </button>
         </section>
       );
