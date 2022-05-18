@@ -45,9 +45,11 @@ export default function Business(props) {
     // TODO: validate required inputs
     event.preventDefault();
 
-    // console.log(formData.comments);
-    // console.log(formData.date);
-    // console.log(formData.time);
+    // validate date and time
+    if (formData.date === "" || formData.time === "") {
+      alert("Please enter a date and time.");
+      return;
+    }
 
     let rawDate = `${formData.date}T${formData.time}:00`;
     let dateObj = new Date(Date.parse(rawDate));
@@ -64,28 +66,45 @@ export default function Business(props) {
     let fdJSON = JSON.stringify(fd);
 
     let URL = `${process.env.REACT_APP_API_URL}appointments/`;
-    // console.log(URL);
-    console.log(window.jwt);
+    let responseOK = false;
+    let status;
     fetch(URL, {
       method: "post",
       body: fdJSON,
       headers: {
-        "Authorization": `${window.jwt}`,
+        Authorization: `${window.jwt}`,
         "Content-Type": "application/json",
       },
-      // FIXME: REMOVE BELOW IN PRODUCTION
-      // mode: "no-cors",
     })
       .then((response) => {
-        console.log("status: " + response.status);
+        status = response.status;
+        console.log("status: " + status);
+        if (status === 200 || status === 201) {
+          responseOK = true;
+        }
+
         return response.text();
       })
       .then((data) => {
         console.log(data);
-        alert("Success");
+        if (responseOK) {
+          console.log("responseOK");
+          alert(`Successfully scheduled an appointment with ${props.name}.`);
+          return;
+        }
+
+        if (status === 401) {
+          alert("Failed to create appointment.\nPlease sign in.");
+          return;
+        }
+        if (status === 400) {
+          alert(
+            "Failed to create appointment.\nPlease enter valid date and time."
+          );
+        }
       })
       .catch((err) => {
-        alert("Error: ", err);
+        alert("Error ", err);
       });
   }
 
