@@ -73,7 +73,7 @@ export default function Business(props) {
         "Content-Type": "application/json",
       },
       // FIXME: REMOVE BELOW IN PRODUCTION
-      mode: "no-cors",
+      // mode: "no-cors",
     })
       .then((response) => {
         console.log("status: " + response.status);
@@ -81,10 +81,10 @@ export default function Business(props) {
       })
       .then((data) => {
         console.log(data);
-        alert(JSON.stringify(data));
+        alert("Success");
       })
       .catch((err) => {
-        console.log("Error: ", err);
+        alert("Error: ", err);
       });
   }
 
