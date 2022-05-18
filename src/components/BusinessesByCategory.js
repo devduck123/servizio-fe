@@ -12,7 +12,7 @@ export default function BusinessesByCategory() {
   const [businessesByCategory, setBusinessesByCategory] = React.useState([]);
 
   React.useEffect(() => {
-    let URL = `${process.env.REACT_APP_API_URL}businesses?category=${category}`;
+    let URL = `${process.env.REACT_APP_API_URL}businesses/?category=${category}`;
     fetch(URL)
       .then((res) => res.json())
       .then(
