@@ -14,13 +14,14 @@ export default function Auth() {
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
-          
-          // FIXME: email not sending...
+
+          // FIXME: email not sending everytime...
           if (authResult.additionalUserInfo.isNewUser) {
             var user = authResult.user;
             user.sendEmailVerification();
-            alert(`Verification email sent to ${window.email}`)
+            alert(`Verification email sent to ${window.email}`);
           }
+
           firebase
             .auth()
             .currentUser.getIdToken()

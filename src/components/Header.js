@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 
 export default function Header(props) {
-  console.log("<Header /> : " + props.signedIn);
-
   let [navToRender, setNavToRender] = React.useState();
+  let appointmentsURL = `/appointments?client=${window.uid}`;
   React.useEffect(() => {
     setNavToRender(() => {
       return !props.signedIn ? (
@@ -44,14 +43,20 @@ export default function Header(props) {
           <h4 style={{ color: "white", marginTop: "3vh" }}>
             Signed in @ {window.displayName}
           </h4>
-          <button type="button">View Appointments</button>
-          <button type="button" onClick={props.signOut}>
+          <Link to={appointmentsURL} className="btn-signed-in">
+            View Appointments
+          </Link>
+          <button
+            className="btn-signed-in"
+            type="button"
+            onClick={props.signOut}
+          >
             Sign out
           </button>
         </section>
       );
     });
-  }, [props.signedIn, props.signOut]);
+  }, [props.signedIn, props.signOut, appointmentsURL]);
 
   return (
     <header>

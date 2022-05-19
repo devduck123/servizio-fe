@@ -24,6 +24,7 @@ export default function Business(props) {
     ? `https://storage.googleapis.com/${props.images[0]}`
     : "https://via.placeholder.com/300";
 
+  // console.log(props.images ? props.images[0] : "unknown");
   const [formData, setFormData] = React.useState({
     date: "",
     time: "",
@@ -94,7 +95,9 @@ export default function Business(props) {
         }
 
         if (status === 401) {
-          alert("Failed to create appointment.\nPlease sign in.");
+          alert(
+            "Failed to create appointment.\nPlease sign in, and validate your email."
+          );
           return;
         }
         if (status === 400) {

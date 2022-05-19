@@ -5,6 +5,7 @@ import "firebaseui/dist/firebaseui.css";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Appointments from "./components/Appointments";
 import Auth from "./components/Auth";
 import BusinessesByCategory from "./components/BusinessesByCategory";
 import "./styles.css";
@@ -23,6 +24,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // TODO: consider separate environment variable to have control over local v. production
+// runs FE against local BE, otherwise will run production
 // if (process.env.NODE_ENV !== "production") {
 //   firebase.auth().useEmulator("http://localhost:9099")
 // }
@@ -49,6 +51,7 @@ root.render(
           />
         </Route>
         <Route path="auth" element={<Auth />} />
+        <Route path="appointments" element={<Appointments />} />
       </Routes>
     </BrowserRouter>
   </Provider>

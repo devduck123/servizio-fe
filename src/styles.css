@@ -47,9 +47,12 @@ svg {
 
 button,
 textarea,
-select {
+select,
+.btn-signed-in,
+.btn-auth {
   font-family: inherit;
   background-color: white;
+  color: black;
 }
 
 p,
@@ -82,13 +85,13 @@ h6 {
 
 .btn-auth,
 .btn-discover,
-.nav-auth > button {
+.btn-signed-in {
   transition: var(--ease-in-out-2) 0.2s;
 }
 
 .btn-auth:hover,
 .btn-discover:hover,
-.nav-auth > button:hover {
+.btn-signed-in:hover {
   background-color: var(--blue-2);
   font-weight: 600;
   transform: scale(1.1);
@@ -121,7 +124,7 @@ nav {
   font-size: var(--font-size-fluid-1);
 }
 
-.nav-auth > button {
+.btn-signed-in {
   padding: 1.6%;
   margin: var(--size-fluid-1);
   font-size: var(--font-size-fluid-0);
@@ -424,6 +427,28 @@ textarea {
 
 .auth-wrapper {
   transform: translateY(10vh);
+}
+
+.section-appointments {
+  display: grid;
+  place-content: center;
+}
+
+.section-appointments > h2 {
+  padding: 8px;
+  margin: 8px;
+  font-size: var(--font-size-fluid-2);
+}
+
+.appointment-wrapper {
+  margin: 10px;
+  padding: 14px;
+  box-shadow: 0 0 0.4em rgba(0, 0, 0, 0.4);
+  text-align: left;
+}
+
+.appointment-wrapper > div {
+  padding: 4px;
 }
 
 /* NON-DESKTOP */
